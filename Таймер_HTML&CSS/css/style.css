@@ -1,0 +1,173 @@
+html,body{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background-color: rgba(250, 142, 130, 1);;
+}
+*{
+	box-sizing: border-box;
+}
+.wrapper{
+	width: 100%;
+	min-height: 100%;
+
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.timer{
+	width: 500px;
+	height: 500px;
+
+	overflow: hidden;
+	background-color: white;
+
+	border-radius: 50%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	position: relative;
+}
+
+.timer:before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background-color: white;
+	animation: mask 10s linear infinite forwards;
+	z-index: 3;
+}
+.timer:after{
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50%;
+	height: 100%;
+	background-color: rgba(153, 83, 26, 1);
+	animation: mask-right 10s linear infinite forwards;
+	z-index: 2;
+	opacity: 0;
+}
+.timer__line{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	animation: line 10s linear infinite forwards;
+	z-index: 2;
+}
+.timer__line:after{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background-color: rgba(153, 83, 26, 1);
+	z-index: 3;
+	
+}
+.timer__line:before{
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50%;
+	height: 100%;
+	background-color: white;
+	z-index: 3;
+	
+}
+
+.timer__body{
+	position: absolute;
+	top: 25%;
+	left: 25%;
+
+
+	width: 50%;
+	height: 50%;
+
+	border-radius: 50%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color:rgba(120, 83, 83, 1);
+	overflow: hidden;
+	z-index: 5;
+
+}
+
+.timer__body span{
+	transform: translateY(1150px);
+	
+	font-size: 200px;
+	text-align: center;
+	animation: step 10s steps(10, jump-start) infinite;
+
+	position: relative;
+}
+
+@keyframes step {
+	0%{
+		visibility: visible;
+	}
+	100%{
+		transform: translateY(-1150px);
+	}
+	
+}
+
+@keyframes line {
+	0%{
+		
+	
+	}
+	100%{
+
+		transform: rotate(360deg);
+
+	}
+
+}
+@keyframes mask {
+	0%{
+		visibility: visible;
+
+	}
+
+	50%,
+	100%{
+	
+		visibility: hidden;
+
+	}
+}
+@keyframes mask-right {
+	0%,
+	49.9%
+	{
+		
+		opacity: 0;
+
+	}
+	50%,
+	100%{
+
+		opacity: 1;
+	}
+}
+
+
+
